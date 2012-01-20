@@ -89,6 +89,10 @@ class Gtalkbot extends Adapter
 
     message = body.getText()
 
+    # clean up Jaconda jabber tweaks
+    message = message.substr(message.indexOf(':')+1)
+
+
     # Pad the message with robot name just incase it was not provided.
     message = if not message.match(new RegExp("^"+@name+":?","i")) then @name + " " + message else message
 
