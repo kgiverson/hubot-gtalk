@@ -93,8 +93,9 @@ class Gtalkbot extends Adapter
     message = message.substr(message.indexOf(':')+1)
 
 
-    # Pad the message with robot name just incase it was not provided.
-    message = if not message.match(new RegExp("^"+@name+":?","i")) then @name + " " + message else message
+    # Pad the message with robot name just in case it was not provided.
+    # Commenting out this for Jaconda right now.  Too many false positives.
+    #message = if not message.match(new RegExp("^"+@name+":?","i")) then @name + " " + message else message
 
     # Send the message to the robot
     user = @getUser jid
