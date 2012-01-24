@@ -89,8 +89,11 @@ class Gtalkbot extends Adapter
 
     message = body.getText()
 
-    # clean up Jaconda jabber tweaks
-    message = message.substr(message.indexOf(':')+1)
+     # clean up Jaconda jabber tweaks
+    colon = message.indexOf(':')
+    if colon > 0
+      message = message.substr(colon + 2)
+
 
 
     # Pad the message with robot name just in case it was not provided.
